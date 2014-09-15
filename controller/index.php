@@ -13,4 +13,15 @@ class Index extends Engine\Controller
     {
         $this->tpl->set('method',__METHOD__);
     }
+    function testArray()
+    {
+        $array = [
+            [ "a" => "a" ],
+            [ "b" => "b" ],
+        ];
+        foreach($array as $key => $val) {
+            $this->tpl->setArray('array', $val);
+            print_r($this->tpl->_array);
+        }
+    }
 }

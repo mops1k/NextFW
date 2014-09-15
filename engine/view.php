@@ -61,13 +61,11 @@ class View
     public function setArray($name, $array)
     {
         $exists = false;
-        if (is_array($this->_array)) {
-            foreach ($this->_array as $key => $val) {
-                if (isset($val[ $name ])) {
-                    $this->_array[ $key ] = $array;
-                    $exists = true;
-                    break;
-                }
+        foreach ($this->_array as $key => $val) {
+            if (isset($val[ $name ])) {
+                $this->_array[ $key ] = [ $name => $array ];
+                $exists = true;
+                break;
             }
         }
         if (!$exists) {
