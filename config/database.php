@@ -8,7 +8,7 @@ class Database {
             'driver' => 'mysql',
             'host' => 'mysql.hostinger.ru',
             'user' => 'u602610923_next',
-            'pass' => 'ma5Haash',
+            'pass' => '',
             'name' => 'u602610923_next',
             'char' => 'utf8',
             'debug' => 1,
