@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TabdirProjectConfiguration">
+    <folderConfigurations>
+      <Entry folder="D:\PHP\NextFW">
+        <FolderConfiguration>
+          <option name="charsInName" value="8" />
+          <option name="countMaxDirsFromStart" value="true" />
+          <option name="dirSeparator" value="|" />
+          <option name="filesExtensions" value="" />
+          <option name="maxDirsToShow" value="3" />
+          <option name="reduceDirNames" value="true" />
+          <option name="relativeTo" value="D:\PHP\NextFW" />
+          <option name="removeDuplicates" value="false" />
+          <option name="titleFormat" value="[{0}] {1}" />
+          <option name="useExtensions" value="Do not use" />
+        </FolderConfiguration>
+      </Entry>
+    </folderConfigurations>
+  </component>
+</project>
+
