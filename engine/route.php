@@ -73,6 +73,10 @@ class Route
             die();
         }
     }
+    static public function getUrl()
+    {
+        return self::$requestUrl;
+    }
 }
 
 Route::construct();
