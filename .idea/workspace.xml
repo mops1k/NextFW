@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c991a3bf-ecb6-407c-856a-92226df51955" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NextFW.iws" />
@@ -309,7 +308,13 @@
       <option name="project" value="LOCAL" />
       <updated>1412605446538</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Исправил доступ к .tpl файлам">
+      <created>1412605531377</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1412605531377</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -353,7 +358,8 @@
     <MESSAGE value="Добавил автоматическую подгрузку модуля контроллера в переменную $this-&gt;mod" />
     <MESSAGE value="много различных правок" />
     <MESSAGE value="добавил в шаблонизатор оператор ветвления if else" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил в шаблонизатор оператор ветвления if else" />
+    <MESSAGE value="Исправил доступ к .tpl файлам" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправил доступ к .tpl файлам" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/config/database.php">
