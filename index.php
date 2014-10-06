@@ -1,6 +1,8 @@
 <?php
 namespace NextFW;
 
+session_start();
+
 /* const section */
 define("PATH",dirname(__FILE__).DIRECTORY_SEPARATOR);
 define("LOG",PATH."logs".DIRECTORY_SEPARATOR);
@@ -16,7 +18,7 @@ use NextFW\Config as Config;
 /* enable autoload */
 new Engine\Autoload();
 
-/* glabal set */
+/* global set */
 class Vars
 {
     static public $get, $post;

@@ -5,7 +5,13 @@ use NextFW\Config;
 
 class Error extends \Exception {
     private $tpl;
+    private static $logger;
     public static $errors = false;
+    function __construct()
+    {
+        self::$logger = new Logger();
+        self::$logger->customFile = "engineError";
+    }
     public function render($message, $param = [])
     {
         $this->tpl = new View();
@@ -19,6 +25,7 @@ class Error extends \Exception {
         $loadTpl = 'main.tpl';
         $this->tpl->loadTpl($loadTpl);
         $this->tpl->view();
+        self::$logger->write($message,$param);
         die();
     }
     static function error_handler($errno, $errstr, $errfile, $errline)
@@ -54,6 +61,8 @@ class Error extends \Exception {
             $loadTpl = 'php.tpl';
             $tpl->loadTpl($loadTpl);
             $tpl->view();
+            self::$logger = new Logger();
+            self::$logger->write(str_replace("\n","",strip_tags($message)));
             $tpl->clear();
         }
 

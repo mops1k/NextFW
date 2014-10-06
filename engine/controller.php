@@ -24,6 +24,10 @@ abstract class Controller
         if (!Route::is_ajax()) {
             $loadTpl = 'index.tpl';
             $this->tpl->loadTpl($loadTpl);
+            $this->tpl->getBlocks([
+                "content",
+                "breadcrumb",
+                ]);
         }
 
         // module init
@@ -39,7 +43,7 @@ abstract class Controller
 
         if(file_exists(PATH."/".$fileName))
         {
-            /* @var object $controller */
+            /** @var object $controller */
             $this->mod = new $controller;
         }
         // end module init

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="ftp.nextfw.url.ph " deleteMissingItems="true" createEmptyFolders="true" traceLevel="ERRORS" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="phpdev.su" deleteMissingItems="true" createEmptyFolders="true" traceLevel="ERRORS" promptOnLocalOverwrite="false" autoUploadExternalChanges="true">
     <serverData>
       <paths name="ftp.nextfw.url.ph ">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="phpdev.su">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
