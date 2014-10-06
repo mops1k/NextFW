@@ -9,6 +9,10 @@ RewriteBase /
   Order Deny,Allow
 	Deny From All
 </Files>
+<Files .tpl>
+  Order Deny,Allow
+	Deny From All
+</Files>
 
 
 # Protect application and system files from being viewed
