@@ -270,6 +270,21 @@ class View
             },
             $string
         );
+        # \{\% if[\ ]{0,1}(.+?) \%\}((.+?)\{\% else \%\}{0,1}(.+?))\{\% endif \%\}
+        $string = preg_replace_callback(
+            "#\\{\% if[\ ]{0,1}(.+?) \%\}((.+?)\{\% else \%\}?(.+?){0,1}|.*)\{\% endif \%\}#is",
+            function ($m) {
+                $count = count($m);
+                if($count > 3) {
+                    $str = "function ifTpl() { if{$m[1]} { return \"{$m[3]}\"; } else { return \"{$m[4]}\"; } }";
+                } else {
+                    $str = "function ifTpl() { if{$m[1]} { return \"{$m[2]}\"; } }";
+                }
+                eval($str);
+                return ifTpl();
+            },
+            $string
+        );
 
         return $string;
     }
