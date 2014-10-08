@@ -4,53 +4,27 @@ namespace NextFW\Engine;
 
 trait TSingleton
 {
-    /**
-     * @var self
-     */
-    private static
-        $instance = NULL;
-
-    /**
-     * @return TSingleton
-     */
-    public static function getInstance()
-    {
-        if (NULL === self::$instance) {
-            self::$instance = new self();
+    private static $instance = array();
+    private static $cursor;
+    public function getInstance($cursor = 0) {
+        if ($cursor !== null) {
+            self::$cursor = $cursor;
         }
-
-        return self::$instance;
-    }
-
-    public static function gI()
-    {
-        return self::getInstance();
-    }
-
-    /**
-     * @return self
-     */
-    public static function get($class)
-    {
-        try {
-            self::$instance = new $class;
-
-            return self::$instance;
-        } catch (\Exception $e) {
-            die($e->getMessage());
+        if (!array_key_exists(self::$cursor, self::$instance)) {
+            self::$instance[self::$cursor] = new self();
         }
+        return self::$instance[self::$cursor];
     }
-
-    private function __clone()
-    {
+    public function gI($cursor = 0) {
+        $this->getInstance($cursor);
     }
-
-    private function __construct()
-    {
-    }
-
-    public function test()
-    {
-        var_dump($this);
+    public static function get($class,$cursor = 0) {
+        if ($cursor !== null) {
+            self::$cursor = $cursor;
+        }
+        if (!array_key_exists(self::$cursor, self::$instance)) {
+            self::$instance[self::$cursor] = new $class();
+        }
+        return self::$instance[self::$cursor];
     }
 }

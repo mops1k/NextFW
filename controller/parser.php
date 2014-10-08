@@ -8,6 +8,7 @@ class Parser extends Engine\Controller
     /* @var NextFW\Module\Parser */
     public $mod;
 
+    use Engine\TSingleton;
     function start()
     {
         $this->tpl->setBlock("breadcrumb",'<a href="/parser">Parser</a>');

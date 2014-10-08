@@ -1,20 +1,21 @@
 <?php
 namespace NextFW\Controller;
 
+use NextFW;
 use NextFW\Engine as Engine;
 use NextFW\Config as Config;
 
 class Captcha {
+    use Engine\TSingleton;
     function start()
     {
-       $captcha = new Engine\Captcha();
-       $captcha->createCaptcha(
-        Config\Captcha::$width,
-        Config\Captcha::$height,
-        Config\Captcha::$length,
-        Config\Captcha::$fontColor,
-        Config\Captcha::$bgColor,
-        Config\Captcha::$noise
+        $this->get("NextFW\\Engine\\Captcha")->createCaptcha(
+            Config\Captcha::$width,
+            Config\Captcha::$height,
+            Config\Captcha::$length,
+            Config\Captcha::$fontColor,
+            Config\Captcha::$bgColor,
+            Config\Captcha::$noise
         );
        /*
 if(isset($_POST['submit'])) {
