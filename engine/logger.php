@@ -5,7 +5,10 @@ namespace NextFW\Engine;
 class Logger {
     public $customFile = null;
     public $customFolder = null;
-    function write($logStr,$logArray = [])
+    const ERROR = 'ERROR';
+    const WARNING = 'WARNING';
+    const INFO = 'INFO';
+    function write($logStr,$logArray = [], $errorType = self::WARNING)
     {
         if(empty($logStr)) return false;
         if(count($logArray) > 0) {
@@ -22,7 +25,7 @@ class Logger {
 
         $handler = fopen($full_path, "a");
         if ($handler) {
-            fwrite($handler, "[".date("H:i:s")."] ".$logStr);
+            fwrite($handler, "[".date("H:i:s")."] [".$errorType."] ".$logStr);
         } else return false;
         fclose($handler);
         return true;

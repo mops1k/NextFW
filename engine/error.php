@@ -25,10 +25,10 @@ class Error extends \Exception {
         $loadTpl = 'main.tpl';
         $this->tpl->loadTpl($loadTpl);
         $this->tpl->view();
-        self::$logger->write($message,$param);
+        self::$logger->write($message,$param,Logger::WARNING);
         die();
     }
-    static function error_handler($errno, $errstr, $errfile, $errline)
+    static function error_handler($errno, $errstr, $errfile, $errline, $errorType = Logger::WARNING)
     {
         // если ошибка попадает в отчет (при использовании оператора "@" error_reporting() вернет 0)
         if (error_reporting() & $errno)
@@ -62,7 +62,7 @@ class Error extends \Exception {
             $tpl->loadTpl($loadTpl);
             $tpl->view();
             self::$logger = new Logger();
-            self::$logger->write(str_replace("\n","",strip_tags($message)));
+            self::$logger->write(str_replace("\n","",strip_tags($message)), [], $errorType);
             $tpl->clear();
         }
 
@@ -81,7 +81,7 @@ class Error extends \Exception {
             // очищаем буффер (не выводим стандартное сообщение об ошибке)
             ob_end_clean();
             // запускаем обработчик ошибок
-            self::error_handler($error['type'], $error['message'], $error['file'], $error['line']);
+            self::error_handler($error['type'], $error['message'], $error['file'], $error['line'], Logger::ERROR);
             die();
         }
         else
