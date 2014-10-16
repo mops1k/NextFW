@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c991a3bf-ecb6-407c-856a-92226df51955" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/main.php" afterPath="$PROJECT_DIR$/config/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/controller.php" afterPath="$PROJECT_DIR$/engine/controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/view.php" afterPath="$PROJECT_DIR$/engine/view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NextFW.iws" />
@@ -42,24 +41,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controller.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/engine/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.76" vertical-offset="128" max-vertical-offset="1326">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5896861" vertical-offset="154" max-vertical-offset="1326">
+              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
               <folding>
                 <element signature="e#32#43#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15246637" vertical-offset="0" max-vertical-offset="892">
-              <caret line="8" column="74" selection-start-line="8" selection-start-column="74" selection-end-line="8" selection-end-column="74" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -341,7 +330,13 @@
       <option name="project" value="LOCAL" />
       <updated>1413461421610</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="undeclared static property fix">
+      <created>1413461725374</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1413461725374</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -390,7 +385,8 @@
     <MESSAGE value="Изменил класс Logger и привел в соответствие класс Error" />
     <MESSAGE value="Добавил закомментированный пример использования Singleton+Registry" />
     <MESSAGE value="Куча фиксов и новых фишек" />
-    <option name="LAST_COMMIT_MESSAGE" value="Куча фиксов и новых фишек" />
+    <MESSAGE value="undeclared static property fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="undeclared static property fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -630,14 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.704826" vertical-offset="4498" max-vertical-offset="5389">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/tsingleton.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5533109" vertical-offset="0" max-vertical-offset="891">
@@ -739,6 +727,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.44" vertical-offset="0" max-vertical-offset="255">
+          <caret line="8" column="74" selection-start-line="8" selection-start-column="74" selection-end-line="8" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5145739" vertical-offset="4616" max-vertical-offset="6358">
+          <caret line="351" column="75" selection-start-line="351" selection-start-column="75" selection-end-line="351" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-34.32" vertical-offset="825" max-vertical-offset="1785">
@@ -751,19 +755,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.76" vertical-offset="128" max-vertical-offset="1326">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5896861" vertical-offset="154" max-vertical-offset="1326">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
           <folding>
             <element signature="e#32#43#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15246637" vertical-offset="0" max-vertical-offset="892">
-          <caret line="8" column="74" selection-start-line="8" selection-start-column="74" selection-end-line="8" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>

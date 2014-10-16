@@ -326,6 +326,10 @@ class View implements \ArrayAccess
      */
     public function view()
     {
+        $this->set('jQuery','<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
+        $this->set('bootstrap','<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>');
+
         $this->time = round(microtime() - $this->time, 4);
         $this->set("time", $this->time);
 
@@ -343,6 +347,10 @@ class View implements \ArrayAccess
     }
     function __toString()
     {
+        $this->set('jQuery','<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
+        $this->set('bootstrap','<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>');
+
         $this->time = round(microtime() - $this->time, 4);
         $this->set("time", $this->time);
 

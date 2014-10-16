@@ -35,7 +35,7 @@ abstract class Controller
             $this->tpl->loadTpl($loadTpl);
             $this->tpl->getBlocks([
                     'content',
-                    'second_title'
+                    'breadcrumb'
                 ]);
             $this->tpl->set('username',$username);
         }
