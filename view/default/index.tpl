@@ -41,7 +41,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/">Main</a></li>
-        <li><a href="/parser">Parser</a></li>
+        <li><a href="/parser">freelance.ru parser</a></li>
+        <li><a href="/weather">weather in moscow</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

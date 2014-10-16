@@ -3,8 +3,9 @@ namespace NextFW\Engine;
 
 use NextFW\Config;
 
-class DB
+class DB implements \ArrayAccess
 {
+    use TArrayAccess;
     /**
      * Экземпляр класса
      *
@@ -174,7 +175,7 @@ class DB
     /*
      * Выполняет запрос с подготовленным выражением (или без) для результата (SELECT)
      *
-     * @param string/array $sql - запрос
+     * @param string|array $sql - запрос
      * @return bool
      */
     public static function pquery($sql)
@@ -211,11 +212,6 @@ class DB
             $state = true;
         } else {
             // выполняем запрос с подготовленным выражением
-
-            // старт времени
-            if (self::$_print_time == 1 || self::$_log_sql > 0) {
-                timer::start('db_query');
-            }
 
             // хэш запроса
             $hash = md5($sql);
@@ -286,7 +282,7 @@ class DB
 
             // старт времени
             if (self::$_print_time == 1 || self::$_log_sql > 0) {
-                timer::start('db_query');
+                //timer::start('db_query');
             }
 
             // хэш запроса
@@ -379,25 +375,18 @@ class DB
     private static function logEnd($sql)
     {
         if (self::$_print_time == 1 || self::$_log_sql > 0) {
-            $time = timer::get('db_query');
-            if (self::$_print_time == 1) {
-                // на экран
-                echo $time, '<br />', $sql, '<br /><br />';
-            } elseif ($time >= self::$_log_sql) {
-                // в файл
-                $file = LOG . date('Y-m-d') . '_db_query.log';
-                $e_file = is_file($file);
-                if ($e_file && !is_writable($file)) {
-                    @chmod($file, 0777);
-                }
-                @file_put_contents(
-                    $file,
-                    date('Y-m-d H:i:s') . ' ' . self::$_name . ' *** ' . $time . ' - ' . $sql . "\n\n",
-                    FILE_APPEND
-                );
-                if (!$e_file) {
-                    @chmod($file, 0777);
-                }
+            $file = LOG . date('Y-m-d') . '_db_query.log';
+            $e_file = is_file($file);
+            if ($e_file && !is_writable($file)) {
+                @chmod($file, 0777);
+            }
+            @file_put_contents(
+                $file,
+                date('Y-m-d H:i:s') . ' ' . self::$_name . ' *** ' . $time . ' - ' . $sql . "\n\n",
+                FILE_APPEND
+            );
+            if (!$e_file) {
+                @chmod($file, 0777);
             }
         }
     }
@@ -409,11 +398,11 @@ class DB
      *
      * @return mixed
      */
-    public static function getOne($sql)
+    public static function getOne($sql,$args = "")
     {
-        self::pquery(func_get_args());
+        @$row = self::getAll($sql,$args)[0];
 
-        return self::$_statement ? self::$_statement->fetchColumn() : false;
+        return count($row) > 0 ? $row : false;
     }
 
     /**
@@ -840,5 +829,10 @@ class DB
             {$add_sql}",
             $sql_data
         );
+    }
+
+    static function setType($value)
+    {
+        return self::$_return_result = $value;
     }
 } // конец класса db

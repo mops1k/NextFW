@@ -5,15 +5,10 @@ use NextFW\Config;
 
 class Error extends \Exception {
     private $tpl;
-    private static $logger;
     public static $errors = false;
-    function __construct()
-    {
-        self::$logger = new Logger();
-        self::$logger->customFile = "engineError";
-    }
     public function render($message, $param = [])
     {
+        header('HTTP/1.0 404 Not Found');
         $this->tpl = new View();
         $this->tpl->clear();
         $this->tpl->path = PATH.DIRECTORY_SEPARATOR."view".DIRECTORY_SEPARATOR."errors".DIRECTORY_SEPARATOR;
@@ -25,10 +20,9 @@ class Error extends \Exception {
         $loadTpl = 'main.tpl';
         $this->tpl->loadTpl($loadTpl);
         $this->tpl->view();
-        self::$logger->write($message,$param,Logger::WARNING);
         die();
     }
-    static function error_handler($errno, $errstr, $errfile, $errline, $errorType = Logger::WARNING)
+    static function error_handler($errno, $errstr, $errfile, $errline)
     {
         // если ошибка попадает в отчет (при использовании оператора "@" error_reporting() вернет 0)
         if (error_reporting() & $errno)
@@ -61,8 +55,6 @@ class Error extends \Exception {
             $loadTpl = 'php.tpl';
             $tpl->loadTpl($loadTpl);
             $tpl->view();
-            self::$logger = new Logger();
-            self::$logger->write(str_replace("\n","",strip_tags($message)), [], $errorType);
             $tpl->clear();
         }
 
@@ -81,7 +73,7 @@ class Error extends \Exception {
             // очищаем буффер (не выводим стандартное сообщение об ошибке)
             ob_end_clean();
             // запускаем обработчик ошибок
-            self::error_handler($error['type'], $error['message'], $error['file'], $error['line'], Logger::ERROR);
+            self::error_handler($error['type'], $error['message'], $error['file'], $error['line']);
             die();
         }
         else

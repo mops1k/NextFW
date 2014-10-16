@@ -60,18 +60,7 @@ class Route
         $object = new $controller;
         $method = (self::$requestType == 'POST' AND !self::is_ajax() AND method_exists($controller,self::$requestUrl[1]."Post"))? self::$requestUrl[1]."Post" : self::$requestUrl[1];
         $method = (self::is_ajax())? self::$requestUrl[1]."Ajax" : $method;
-        $error = method_exists($controller,$method) ? false : true;
-        if(!$error)
-            $object->$method();
-        else
-        {
-            Error::$errors = true;
-            $error = new Error();
-            $error->render('Method {method} not found',[
-                    'method' => $controller."->".$method
-                ]);
-            die();
-        }
+        $object->$method();
     }
     static public function getUrl()
     {

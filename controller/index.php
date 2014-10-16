@@ -19,7 +19,7 @@ class Index extends Engine\Controller
     function test()
     {
         $this->tpl->set('method',__METHOD__);
-        print_r($this->mod->test());
+//        print_r($this->mod->test());
 //        $this->get("NextFW\\Engine\\Logger")->write("Test log string 2"); # запишет в лог index
 //        $this->get("NextFW\\Engine\\Logger",1)->customFile = "testInstance";
 //        $this->get("NextFW\\Engine\\Logger",1)->write("Test log string 2"); # запишет в лог testInstance

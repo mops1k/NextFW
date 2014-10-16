@@ -1,11 +1,13 @@
 <?php
 namespace NextFW\Engine;
 
+use NextFW\Config;
 /**
  * Класс шаблонизатора системы
  */
-class View
+class View implements \ArrayAccess
 {
+    use TArrayAccess;
     /**
      * Путь к папке с шаблонами
      *
@@ -50,6 +52,17 @@ class View
         if (!$exists) {
             $this->_data[] = [$name => $string];
         }
+    }
+
+    /**
+     * Этот хак дает возможность задавать массивы и переменные шаблона как переменные класса
+     * @param string $name
+     * @param string|array $value
+     */
+    function __set($name, $value)
+    {
+        if(is_array($value)) $this->setArray($name, $value);
+        else $this->set($name, $value);
     }
 
     /**
@@ -113,7 +126,7 @@ class View
         $string = preg_replace_callback(
             "#\\{include file=['\"](.+?)['\"]\\}#is",
             function ($m) {
-                return $this->sub_load($m[1]);
+                return $this->subLoad($m[1]);
             },
             $string
         );
@@ -270,18 +283,29 @@ class View
             },
             $string
         );
+
+        $string = preg_replace_callback(
+            "#\\{(@|run):([0-9a-zA-Z\_]+?)\((.*)\)\\}#is",
+            function ($m) {
+                ob_start();
+                eval("return ".$m[2]."(".$m[3].");");
+                $func = ob_get_clean();
+                return $func;
+            },
+            $string
+        );
+
         # \{\% if[\ ]{0,1}(.+?) \%\}((.+?)\{\% else \%\}{0,1}(.+?))\{\% endif \%\}
         $string = preg_replace_callback(
             "#\\{\% if[\ ]{0,1}(.+?) \%\}((.+?)\{\% else \%\}?(.+?){0,1}|.*)\{\% endif \%\}#is",
             function ($m) {
                 $count = count($m);
                 if($count > 3) {
-                    $str = "function ifTpl() { if{$m[1]} { return \"{$m[3]}\"; } else { return \"{$m[4]}\"; } }";
+                    $str = "if{$m[1]} { return \"{$m[3]}\"; } else { return \"{$m[4]}\"; }";
                 } else {
-                    $str = "function ifTpl() { if{$m[1]} { return \"{$m[2]}\"; } }";
+                    $str = "if{$m[1]} { return \"{$m[2]}\"; } }";
                 }
-                eval($str);
-                return ifTpl();
+                return eval($str);
             },
             $string
         );
@@ -302,11 +326,36 @@ class View
      */
     public function view()
     {
-        $this->set('jQuery','<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
-        $this->set('bootstrap','<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>');
         $this->time = round(microtime() - $this->time, 4);
         $this->set("time", $this->time);
-        echo $this->parseVal($this->str);
+
+        $text = $this->parseVal($this->str);
+
+        if(Config\Main::$tidyEnabled)
+        {
+            $tidy = new \Tidy;
+            $tidy->parseString($text);
+            $tidy->cleanRepair();
+            $text = $tidy;
+        }
+
+        echo $text;
+    }
+    function __toString()
+    {
+        $this->time = round(microtime() - $this->time, 4);
+        $this->set("time", $this->time);
+
+        $text = $this->parseVal($this->str);
+
+        if(Config\Main::$tidyEnabled)
+        {
+            $tidy = new \Tidy;
+            $tidy->parseString($text);
+            $tidy->cleanRepair();
+            $text = $tidy;
+        }
+
+        return (string)$text;
     }
 }

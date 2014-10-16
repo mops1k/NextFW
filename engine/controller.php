@@ -11,23 +11,33 @@ abstract class Controller
     public $tpl;
     /* @var object */
     public $mod;
+    public $username;
+    public $get, $post;
 
     function __construct()
     {
         if(Config\Main::$dbEnabled) DB::init();
+        $vars = new NextFW\Vars();
+
+        // Get and Post as array
+        $this->get = $vars['get'];
+        $this->post = $vars['post'];
+
         $this->tpl = new View();
-        $this->tpl->path = PATH . DIRECTORY_SEPARATOR . "view" . DIRECTORY_SEPARATOR . Config\Main::$template . DIRECTORY_SEPARATOR;
+        $this->tpl['path'] = PATH . "view" . DIRECTORY_SEPARATOR . Config\Main::$template . DIRECTORY_SEPARATOR;
         $this->tpl->set(
             "THEME",
             DIRECTORY_SEPARATOR . "view" . DIRECTORY_SEPARATOR . Config\Main::$template . DIRECTORY_SEPARATOR
         );
+        $username = (isset($_SESSION['username'])) ? $_SESSION['username'] : 'guest';
         if (!Route::is_ajax()) {
             $loadTpl = 'index.tpl';
             $this->tpl->loadTpl($loadTpl);
             $this->tpl->getBlocks([
-                "content",
-                "breadcrumb",
+                    'content',
+                    'second_title'
                 ]);
+            $this->tpl->set('username',$username);
         }
 
         // module init
@@ -43,15 +53,21 @@ abstract class Controller
 
         if(file_exists(PATH."/".$fileName))
         {
-            /** @var object $controller */
+            /* @var object $controller */
             $this->mod = new $controller;
         }
         // end module init
     }
 
+    function __call($m, $a) {
+        Error::$errors = true;
+        $error = new Error();
+        $error->render('Страницы {m} не существует.',[ "m" => $m ]);
+    }
+
     function __destruct()
     {
         if(Error::$errors) $this->tpl->clear();
-        $this->tpl->view();
+        echo $this->tpl;
     }
 }
