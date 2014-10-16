@@ -326,7 +326,7 @@ class View implements \ArrayAccess
      */
     public function view()
     {
-        $this->set('jQuery','<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
+        $this->set('jQuery','<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
         $this->set('bootstrap','<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>');
 
@@ -338,7 +338,7 @@ class View implements \ArrayAccess
         if(Config\Main::$tidyEnabled)
         {
             $tidy = new \Tidy;
-            $tidy->parseString($text);
+            $tidy->parseString($text, [ "wrap" => 160 ]);
             $tidy->cleanRepair();
             $text = $tidy;
         }
@@ -347,7 +347,7 @@ class View implements \ArrayAccess
     }
     function __toString()
     {
-        $this->set('jQuery','<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
+        $this->set('jQuery','<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
         $this->set('bootstrap','<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>');
 
@@ -359,7 +359,7 @@ class View implements \ArrayAccess
         if(Config\Main::$tidyEnabled)
         {
             $tidy = new \Tidy;
-            $tidy->parseString($text);
+            $tidy->parseString($text, [ "wrap" => 160 ]);
             $tidy->cleanRepair();
             $text = $tidy;
         }
