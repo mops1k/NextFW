@@ -1,8 +1,6 @@
 <?php
 namespace NextFW;
 
-session_start();
-
 /* const section */
 define("PATH",dirname(__FILE__).DIRECTORY_SEPARATOR);
 define("LOG",PATH."logs".DIRECTORY_SEPARATOR);
@@ -19,7 +17,7 @@ use NextFW\Config as Config;
 new Engine\Autoload();
 
 /* global set */
-class Vars
+class Vars implements \ArrayAccess
 {
     static public $get, $post;
     static function init()
@@ -48,6 +46,29 @@ class Vars
         }
         self::$get = (object)self::$get;
         self::$post = (object)self::$post;
+    }
+    public function offsetSet($offset, $value) {
+        if (is_null($offset)) {
+            if(isset(self::${$offset})) self::${$offset} = $value;
+            else
+                $this->{$offset} = $value;
+        } else {
+            if(isset(self::${$offset})) self::${$offset} = $value;
+            else $this->{$offset} = $value;
+        }
+    }
+    public function offsetExists($offset) {
+        if(isset(self::${$offset})) return isset(self::${$offset});
+        else return isset($this->{$offset});
+    }
+    public function offsetUnset($offset) {
+        if(isset(self::${$offset})) unset(self::${$offset});
+        else
+            unset($this->{$offset});
+    }
+    public function offsetGet($offset) {
+        if(isset(self::${$offset})) return (array)self::${$offset};
+        else return (array)$this->{$offset};
     }
 }
 

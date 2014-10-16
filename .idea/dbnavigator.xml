@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DBNavigator.Project.ConnectionManager">
-    <connections />
-  </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
     <value-preview-text-wrapping value="false" />
@@ -35,6 +32,7 @@
     </execution-history>
   </component>
   <component name="DBNavigator.Project.Settings">
+    <connections />
     <browser-settings>
       <general>
         <display-mode value="TABBED" />
@@ -335,9 +333,9 @@
         <mapping file-type-id="TYPE_BODY" extensions="tpb" />
       </extensions>
       <general>
-        <statement-postfix value="/" />
         <lookup-ddl-files value="true" />
         <create-ddl-files value="false" />
+        <synchronize-ddl-files value="true" />
         <use-qualified-names value="false" />
         <make-scripts-rerunnable value="true" />
       </general>
