@@ -14,6 +14,8 @@ use NextFW\Config as Config;
 /* end section */
 
 /* enable autoload */
+$loads = [];
+$loads[] = PATH."engine/autoload.php";
 new Engine\Autoload();
 
 /* global set */
@@ -81,15 +83,16 @@ header("Content-type: text/html; Charset=utf-8");
 if(Config\Main::$debug)
 {
     ini_set('display_errors','On');
-    ini_set('html_errors', 'on');
+    ini_set('html_errors', 'Off');
 
     error_reporting(-1);
 } else {
-    ini_set('display_errors','On');
-    ini_set('html_errors', 'on');
+    ini_set('display_errors','Off');
+    ini_set('html_errors', 'Off');
 
     error_reporting(E_ALL);
 }
+
 ob_start();
 register_shutdown_function(function() { $error = new Engine\Error(); $error->fatal_error_handler(); });
 set_error_handler(["NextFW\\Engine\\Error","error_handler"]);

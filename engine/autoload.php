@@ -1,5 +1,6 @@
 <?php
 namespace NextFW\Engine;
+
 class Autoload
 {
     public static $loader;
@@ -15,13 +16,16 @@ class Autoload
 
     public function __construct()
     {
+
         spl_autoload_register([$this, 'autoload']);
+
     }
 
     function autoload($className)
     {
+        global $loads;
         $classNameOld = $className;
-        $className = str_replace("nextfw","",strtolower(ltrim($className, '\\')));
+        $className = str_replace("nextfw\\","",strtolower(ltrim($className, '\\')));
         $fileName = '';
         if ($lastNsPos = strrpos($className, '\\')) {
             $namespace = substr($className, 0, $lastNsPos);
@@ -30,35 +34,19 @@ class Autoload
         }
         $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 
-        if(file_exists(PATH."/".$fileName))
-            require(PATH."/".$fileName);
-
-        $exists = true;
-        $type = "Class";
-        if(!class_exists($classNameOld)) $exists = false;
-
-        if((!trait_exists($classNameOld) AND $exists == false) AND class_exists($classNameOld))
+        if(file_exists(PATH.$fileName))
         {
-            $type = "Trait";
-            $exists = false;
+            require_once(PATH.$fileName);
+            $loads[] = PATH.$fileName;
         }
-        else $exists = true;
 
-        if(!interface_exists($classNameOld) AND $exists == false AND (trait_exists($classNameOld) OR class_exists($classNameOld)))
-        {
-            $type = "Interface";
-            $exists = false;
+        $type = null;
+        if(!class_exists($classNameOld)) $type = "Class";
+        elseif(!trait_exists($classNameOld) AND class_exists($classNameOld)) $type = "Trait";
+        elseif(!interface_exists($classNameOld) AND (trait_exists($classNameOld) AND class_exists($classNameOld))) $type = "Interface";
+
+        if($type != null) {
+            header('HTTP/1.0 404 Not Found');
         }
-        else $exists = true;
-
-        if(!$exists)
-        {
-            Error::$errors = true;
-            $error = new Error();
-            $error->render('{type} {class} not found!',[
-                    'type' => $type,
-                    'class' => $classNameOld
-                ]);
-        };
     }
 }

@@ -159,6 +159,12 @@
         <navigation-target value="VIEWER" />
       </record-navigation>
     </dataset-editor-settings>
+    <code-editor-settings>
+      <values-list-popup>
+        <show-object-navigation-gutter value="true" />
+        <show-spec-declaration-navigation-gutter value="false" />
+      </values-list-popup>
+    </code-editor-settings>
     <code-completion-settings>
       <filters>
         <basic-filter>
@@ -315,7 +321,8 @@
         <debug-execution-timeout value="600" />
       </statement-execution>
       <compiler>
-        <compile-type value="KEEP" />
+        <compile-type value="ASK" />
+        <compile-dependencies value="ASK" />
         <always-show-controls value="false" />
       </compiler>
     </execution-engine-settings>

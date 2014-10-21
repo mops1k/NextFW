@@ -3,7 +3,7 @@ namespace NextFW\Engine;
 
 use NextFW\Config;
 
-class Error extends \Exception {
+class Error {
     private $tpl;
     public static $errors = false;
     public function render($message, $param = [])
@@ -61,7 +61,6 @@ class Error extends \Exception {
         // не запускаем внутренний обработчик ошибок PHP
         return TRUE;
     }
-
     /**
      * Функция перехвата фатальных ошибок
      */
