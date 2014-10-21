@@ -19,7 +19,8 @@
             <b>Погода на завтра</b>
         </div>
         <div class="panel-body">
-            <img src="{tomorrow.day.image}" alt="{tomorrow.day.weather_type}"/><b>От {tomorrow.night.temp} до {tomorrow.day.temp}°C </b><br />
+            <img src="{tomorrow.day.image}" alt="{tomorrow.day.weather_type}"/><b>От
+                {% if("{tomorrow.night.temp}" > 0) %} +{tomorrow.night.temp} {% else %} {tomorrow.night.temp} {% endif %}до{% if("{tomorrow.day.temp}" > 0) %} +{tomorrow.day.temp} {% else %} {tomorrow.day.temp} {% endif %}°C </b><br />
             {tomorrow.day.weather_type}<br />
             Ветер: <img src="{tomorrow.day.wind_image}" alt=""/>{tomorrow.day.wind_speed} м/с<br />
             Атм. давление: {tomorrow.day.pressure} мм рт.ст.<br />

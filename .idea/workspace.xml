@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c991a3bf-ecb6-407c-856a-92226df51955" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/view.php" afterPath="$PROJECT_DIR$/engine/view.php" />
+    <list default="true" id="c991a3bf-ecb6-407c-856a-92226df51955" name="Default" comment="added crontab managint class and template">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/crontab.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/crontab.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/crontab_tmp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/autoload.php" afterPath="$PROJECT_DIR$/engine/autoload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/error.php" afterPath="$PROJECT_DIR$/engine/error.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/default/index.tpl" afterPath="$PROJECT_DIR$/view/default/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/default/weather.tpl" afterPath="$PROJECT_DIR$/view/default/weather.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NextFW.iws" />
@@ -28,32 +36,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tsingleton.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/tsingleton.php">
+      <file leaf-file-name="crontab.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/crontab.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="595">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state vertical-scroll-proportion="-78.2" vertical-offset="0" max-vertical-offset="4012">
+              <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/view.php">
+      <file leaf-file-name="crontab.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/crontab.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.24" vertical-offset="5449" max-vertical-offset="6358">
-              <caret line="340" column="57" selection-start-line="340" selection-start-column="57" selection-end-line="340" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09529148" vertical-offset="0" max-vertical-offset="892">
-              <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-              <folding />
+            <state vertical-scroll-proportion="0.50980395" vertical-offset="0" max-vertical-offset="867">
+              <caret line="26" column="84" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
+              <folding>
+                <element signature="e#36#47#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +101,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -162,21 +161,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NextFW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NextFW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
+              <option name="myItemId" value="tmp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -208,22 +193,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NextFW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NextFW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,11 +319,17 @@
       <option name="project" value="LOCAL" />
       <updated>1413461949756</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="tidy wrap fix">
+      <created>1413462939811</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1413462939811</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -398,50 +376,15 @@
     <MESSAGE value="Куча фиксов и новых фишек" />
     <MESSAGE value="undeclared static property fix" />
     <MESSAGE value="little fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="little fix" />
+    <MESSAGE value="tidy wrap fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="tidy wrap fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controller/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="330">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/route.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="1245">
-          <caret line="71" column="19" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="570">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/error.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1335">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="1035">
@@ -617,13 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/errors/php.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="224">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.041811846" vertical-offset="7193" max-vertical-offset="14433">
@@ -638,24 +574,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/parser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1335578" vertical-offset="0" max-vertical-offset="891">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/captcha.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2499">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/captcha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3815937" vertical-offset="0" max-vertical-offset="891">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -680,27 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37037036" vertical-offset="282" max-vertical-offset="1173">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/error.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4466891" vertical-offset="61" max-vertical-offset="1666">
-          <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/route.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79012346" vertical-offset="333" max-vertical-offset="1479">
-          <caret line="61" column="75" selection-start-line="61" selection-start-column="75" selection-end-line="61" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/logger.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5533109" vertical-offset="0" max-vertical-offset="891">
@@ -708,69 +609,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/default/index.tpl">
+    <entry file="file://$PROJECT_DIR$/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82828283" vertical-offset="418" max-vertical-offset="1309">
-          <caret line="68" column="6" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.17152466" vertical-offset="0" max-vertical-offset="892">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/robots.txt_16-10-2014.log">
+    <entry file="file://$PROJECT_DIR$/engine/tsingleton.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="917">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.17152466" vertical-offset="0" max-vertical-offset="892">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/index.php">
+    <entry file="file://$PROJECT_DIR$/engine/route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41928253" vertical-offset="0" max-vertical-offset="892">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.67600894" vertical-offset="400" max-vertical-offset="1292">
+          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/default/weather.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38680318" vertical-offset="0" max-vertical-offset="879">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13340807" vertical-offset="0" max-vertical-offset="6358">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41816142" vertical-offset="18" max-vertical-offset="1292">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/errors/php.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15246637" vertical-offset="0" max-vertical-offset="892">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/error.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43137255" vertical-offset="646" max-vertical-offset="1513">
+          <caret line="60" column="56" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/captcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3529412" vertical-offset="0" max-vertical-offset="867">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6666667" vertical-offset="102" max-vertical-offset="969">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8867713" vertical-offset="0" max-vertical-offset="1785">
-          <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.49019608" vertical-offset="969" max-vertical-offset="1836">
+          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
           <folding>
             <element signature="e#231#259#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/controller.php">
+    <entry file="file://$PROJECT_DIR$/view/default/parser.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5896861" vertical-offset="154" max-vertical-offset="1326">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="917">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43137255" vertical-offset="0" max-vertical-offset="867">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/crontab_tmp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/default/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54901963" vertical-offset="204" max-vertical-offset="1326">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/parser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25490198" vertical-offset="0" max-vertical-offset="1649">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/crontab.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-78.2" vertical-offset="0" max-vertical-offset="4012">
+          <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/crontab.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50980395" vertical-offset="0" max-vertical-offset="867">
+          <caret line="26" column="84" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
           <folding>
-            <element signature="e#32#43#0#PHP" expanded="true" />
+            <element signature="e#36#47#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/tsingleton.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="595">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.24" vertical-offset="5449" max-vertical-offset="6358">
-          <caret line="340" column="57" selection-start-line="340" selection-start-column="57" selection-end-line="340" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09529148" vertical-offset="0" max-vertical-offset="892">
-          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>

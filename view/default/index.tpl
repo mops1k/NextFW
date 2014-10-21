@@ -63,7 +63,7 @@
     <b>Captcha image:</b><br />
     <img src="/captcha" alt="captcha" id="captcha" class="img-thumbnail"><br />
     <button class="btn btn-warning" id="reload">Reload IMAGE</button><br /><br />
-    Exec time: {time}</p>
+        Exec time: {time}</p>
 </div>
 [/content]
 
