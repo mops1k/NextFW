@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="phpdev.su" deleteMissingItems="true" createEmptyFolders="true" traceLevel="ERRORS" promptOnLocalOverwrite="false" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="phpdev.su" deleteMissingItems="true" createEmptyFolders="true" traceLevel="ERRORS" promptOnLocalOverwrite="false" uploadOnCheckin="0dc4a003-e07e-49ee-b5b7-ff318cd962da" autoUploadExternalChanges="true">
     <serverData>
       <paths name="ftp.nextfw.url.ph ">
         <serverdata>
@@ -17,6 +17,7 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="phpdev.su" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
