@@ -1,7 +1,6 @@
 <?php
 namespace NextFW\Config;
 
-
 class Database {
     public static $data = [
         'default' => [
@@ -9,12 +8,9 @@ class Database {
             'host' => 'mysql.hostinger.ru',
             'user' => 'u602610923_next',
             'pass' => '',
-            'name' => 'u602610923_next',
-            'char' => 'utf8',
-            'debug' => 1,
-            'persistent' => false,
-            'log_error' => true,
-            'log_sql' => 0.5
+            'db' => 'u602610923_next',
+            'charset' => 'utf8',
+            'persistent' => false
         ],
     ];
 }

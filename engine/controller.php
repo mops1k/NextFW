@@ -16,7 +16,7 @@ abstract class Controller
 
     function __construct()
     {
-        if(Config\Main::$dbEnabled) DB::init();
+        if(Config\Main::$dbEnabled) DB::init('default',Config\Database::$data);
         $vars = new NextFW\Vars();
 
         // Get and Post as array
